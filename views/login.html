@@ -7,13 +7,19 @@
         Log-in to access the awesomeness!
       </p>
       <p>
-        {{ message }}
+        {{ myform.email.$valid }}
       </p>
     </div>
 
     <fieldset>
-      <input type="email" name="email" placeholder="Email">
-      <input type="password" name="password" placeholder="Password">
+      <input type="email" name="email" placeholder="Email"
+        ng-model="user.email" ng-required="true">
+        <p class="error validationerror"
+          ng-show="myform.email.$invalid && myform.email.$touched">
+            Must be a valid email
+        </p>
+      <input type="password" name="password" placeholder="Password"
+        ng-model="user.password" ng-required="true">
     </fieldset>
 
     <button type="submit" name="btn">Login</button>
